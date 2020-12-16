@@ -41,7 +41,8 @@ body {
   max-width: 100%;
 }
 
-.nav__container {
+.nav__container,
+.instructions {
   width: 90%;
   margin: 10% auto;
 }
@@ -63,15 +64,16 @@ body {
   color: #fff;
 }
 
-.grid {
+.grid,
+.instructions__grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .grid__repo {
   margin: 1rem;
-  width: calc(70% - 2rem);
+  width: 80%;
 }
 
 .grid__repo-header {
@@ -122,6 +124,84 @@ h2 {
   border-radius: 3px;
 }
 
+h1 {
+  margin: 1rem 1rem 2rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-size: 1.75rem;
+  text-align: center;
+}
+
+.instructions__grid-item {
+  width: 100%;
+  text-align: center;
+}
+
+.instructions__grid-item svg {
+  padding: 2rem;
+  width: 13rem;
+  height: 13rem;
+}
+
+.player {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: 0 1.5rem;
+  padding: 0.75rem;
+}
+
+.player__label {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.player__inputs {
+  display: flex;
+  flex-direction: row;
+}
+
+.player__input {
+  flex: 2;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 3px;
+  border: none;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.player-input.input-light {
+  background: rgba(0, 0, 0, 0.02)
+}
+
+.player__input-btn {
+  flex: 1;
+  margin-left: 0.5rem;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.75rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  border-radius: 3px;
+  border: none;
+  letter-spacing: .25rem;
+  font-size: 1rem;
+}
+
+.btn-dark {
+  background-color: #141414;
+  color: #e6e6e6;
+}
+
+.btn-dark:disabled {
+  background-color: #f2f2f2;
+  color: #c7c7c7;
+}
+
 @media only screen and (min-width: 33rem) {
   .grid__repo {
     width: calc(50% - 2rem);
@@ -130,6 +210,10 @@ h2 {
 
 /* ----- TABLET ----- */
 @media only screen and (min-width: 48rem) {
+  .grid {
+    justify-content: initial;
+  }
+
   .grid__repo {
     width: calc(33.33333% - 2rem);
   }
@@ -158,5 +242,9 @@ h2 {
 
   .grid__repo {
     width: calc(25% - 2rem);
+  }
+
+  .instructions__grid-item {
+    width: 33.33333%;
   }
 }
