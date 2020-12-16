@@ -142,6 +142,10 @@ h1 {
   height: 13rem;
 }
 
+.players__container {
+  margin-bottom: 10%;
+}
+
 .player {
   display: flex;
   flex-direction: column;
@@ -189,6 +193,7 @@ h1 {
   border-radius: 3px;
   border: none;
   letter-spacing: .25rem;
+  background-color: transparent;
   font-size: 1rem;
 }
 
@@ -200,6 +205,28 @@ h1 {
 .btn-dark:disabled {
   background-color: #f2f2f2;
   color: #c7c7c7;
+}
+
+.avatar-small {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.player__info-container {
+  display: flex;
+}
+
+.player__info {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  padding: 0.75rem;
+  font-size: 1.5rem;
+}
+
+.player__info .link {
+  margin-left: 0.5rem;
 }
 
 @media only screen and (min-width: 33rem) {
