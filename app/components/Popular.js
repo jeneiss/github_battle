@@ -41,19 +41,19 @@ function ReposGrid({ repos }) {
         const { login, avatar_url } = owner
 
         return (
-          <li key={html_url} className='grid__repo bg-light'>
-            <h4 className='grid__repo-header'>
+          <li key={html_url} className='grid__card bg-light'>
+            <h4 className='grid__card-header'>
               #{index + 1}
             </h4>
             <img
-              className='grid__repo-avatar'
+              className='grid__card-avatar'
               src={avatar_url}
               alt={`Avatar for ${login}`}
             />
             <h2>
               <a className='link' href={html_url}>{login}</a>
             </h2>
-            <ul className='grid__repo-card-list'>
+            <ul className='grid__card-list'>
               <li>
                 <FaUser color='rgb(255, 191, 116)' size={22} />
                 <a href={`https://github.com/${login}`}>
@@ -145,7 +145,7 @@ export default class Popular extends React.Component {
 
         {this.isLoading() && <p>LOADING</p>}
 
-        {error && <p>{error}</p>}
+        {error && <p className='error'>{error}</p>}
 
         {repos[selectedLanguage] && <ReposGrid repos={repos[selectedLanguage]} />}
       </React.Fragment>

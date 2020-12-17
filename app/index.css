@@ -71,19 +71,19 @@ body {
   justify-content: center;
 }
 
-.grid__repo {
+.grid__card {
   margin: 1rem;
   width: 80%;
 }
 
-.grid__repo-header {
+.grid__card-header {
   margin: 1.5rem;
   font-family: 'Montserrat', Arial, sans-serif;
   font-size: 3rem;
   text-align: center;
 }
 
-.grid__repo-avatar {
+.grid__card-avatar {
   display: block;
   margin: 0 auto;
   width: 9.5rem;
@@ -98,18 +98,18 @@ h2 {
   text-align: center;
 }
 
-.grid__repo-card-list {
+.grid__card-list {
   margin: 1.5rem;
   font-size: 1rem;
 }
 
-.grid__repo-card-list li {
+.grid__card-list li {
   display: flex;
   align-items: center;
   margin: 0.75rem;
 }
 
-.grid__repo-card-list svg {
+.grid__card-list svg {
   margin-right: 0.5rem;
 }
 
@@ -233,23 +233,35 @@ h1 {
   margin: 3rem auto;
 }
 
+.error {
+  margin: 4rem auto;
+  color: #ff1616;
+  font-size: 1.5rem;
+}
+
+h4 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 700;
+}
+
 @media only screen and (min-width: 33rem) {
-  .grid__repo {
+  .grid__card {
     width: calc(50% - 2rem);
   }
 }
 
 /* ----- TABLET ----- */
 @media only screen and (min-width: 48rem) {
-  .grid {
+  .grid:not(.results) {
     justify-content: initial;
   }
 
-  .grid__repo {
+  .grid__card {
     width: calc(33.33333% - 2rem);
   }
 
-  .grid__repo-card-list {
+  .grid__card-card-list {
     font-size: 1.25rem;
   }
 
@@ -276,7 +288,7 @@ h1 {
     width: 15%;
   }
 
-  .grid__repo {
+  .grid__card {
     width: calc(25% - 2rem);
   }
 
