@@ -105,7 +105,7 @@ export default class Results extends React.Component {
           </Card>
         </div>
         <button
-          className='btn btn-dark'
+          className='btn btn-dark btn-space'
           onClick={this.props.onReset}
         >
           Reset
