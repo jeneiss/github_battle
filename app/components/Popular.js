@@ -46,7 +46,7 @@ function ReposGrid({ repos }) {
           <Card
             header={`#${index + 1}`}
             avatar={avatar_url}
-            href={avatar_url}
+            href={html_url}
             name={name}
             key={html_url}
           >
