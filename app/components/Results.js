@@ -3,6 +3,7 @@ import { battle } from '../utils/api'
 import { FaCompass, FaBriefcase, FaUsers, FaUserFriends, FaCode, FaUser } from 'react-icons/fa'
 import Card from './Card'
 import PropTypes from 'prop-types'
+import Loading from './Loading'
 
 function ProfileList({ profile }) {
   return (
@@ -74,13 +75,14 @@ export default class Results extends React.Component {
   render() {
     const { winner, loser, error, loading } = this.state
 
-    if (loading) return <p>LOADING</p>
+    if (loading) return <Loading text='Battling' />
 
-      if (error) {
-        return (
-          <p className='error'>{error}</p>
-        )
-      }
+    if (error) {
+      return (
+        <p className='error'>{error}</p>
+      )
+    }
+
     return (
       <React.Fragment>
         <div className='grid results'>
