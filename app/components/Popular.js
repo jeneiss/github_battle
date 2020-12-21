@@ -5,29 +5,34 @@ import { FaUser, FaStar, FaCodeBranch, FaExclamationTriangle } from 'react-icons
 import Card from './Card'
 import Loading from './Loading'
 import Tooltip from './Tooltip'
+import { ThemeConsumer } from '../contexts/theme'
 
 function LanguagesNav({ selected, onUpdateLanguage }) {
   const languages = ['All', 'JavaScript', 'Ruby', 'Java', 'CSS', 'Python']
 
   return (
-    <ul className='nav__container'>
-      {languages.map((lang) => {
-        return (
-          <li key={lang}>
-            <button
-              className='nav__btn'
-              style={lang === selected ? {
-                backgroundColor: 'red',
-                color: 'white'
-              } : null}
-              onClick={() => onUpdateLanguage(lang)}
-            >
-              {lang}
-            </button>
-          </li>
-        )
-      })}
-    </ul>
+    <ThemeConsumer>
+      {({ theme }) => (
+        <ul className='navlang__container'>
+          {languages.map((lang) => {
+            return (
+              <li key={lang}>
+                <button
+                  className={`navlang__btn ${theme}`}
+                  style={lang === selected ? {
+                    backgroundColor: 'red',
+                    color: 'white'
+                  } : null}
+                  onClick={() => onUpdateLanguage(lang)}
+                >
+                  {lang}
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+    </ThemeConsumer>
   )
 }
 

@@ -2,34 +2,39 @@ import React from 'react'
 import { FaUserFriends, FaFighterJet, FaTrophy, FaTimesCircle } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import Results from './Results'
+import { ThemeConsumer } from '../contexts/theme'
 
 function Instructions() {
   return (
-    <div className='instructions'>
-      <h1 className='instructions__header'>
-        Instructions
-      </h1>
-      <ol className='instructions__grid'>
-        <li className='instructions__grid-item'>
-          <h2 className='instructions__sub-header'>
-            Enter two Github users
-          </h2>
-          <FaUserFriends className='bg-light' color='rgb(255, 191, 116' size={140} />
-        </li>
-        <li className='instructions__grid-item'>
-          <h2 className='instructions__sub-header'>
-            Battle
-          </h2>
-          <FaFighterJet className='bg-light' color='#727272' size={140} />
-        </li>
-        <li className='instructions__grid-item'>
-          <h2 className='instructions__sub-header'>
-            See the winners
-          </h2>
-          <FaTrophy className='bg-light' color='rgb(255, 215, 0' size={140} />
-        </li>
-      </ol>
-    </div>
+    <ThemeConsumer>
+      {({ theme }) => (
+        <div className='instructions'>
+          <h1 className='instructions__header'>
+            Instructions
+          </h1>
+          <ol className='instructions__grid'>
+            <li className='instructions__grid-item'>
+              <h2 className='instructions__sub-header'>
+                Enter two Github users
+              </h2>
+              <FaUserFriends className={`bg-${theme}`} color='rgb(255, 191, 116)' size={140} />
+            </li>
+            <li className='instructions__grid-item'>
+              <h2 className='instructions__sub-header'>
+                Battle
+              </h2>
+              <FaFighterJet className={`bg-${theme}`} color='#727272' size={140} />
+            </li>
+            <li className='instructions__grid-item'>
+              <h2 className='instructions__sub-header'>
+                See the winners
+              </h2>
+              <FaTrophy className={`bg-${theme}`} color='rgb(255, 215, 0)' size={140} />
+            </li>
+          </ol>
+        </div>
+      )}
+    </ThemeConsumer>
   )
 }
 
@@ -59,32 +64,36 @@ class PlayerInput extends React.Component {
 
   render() {
     return (
-      <form
-        className='player'
-        onSubmit={this.handleSubmit}
-      >
-        <label htmlFor='username' className='player__label'>
-          {this.props.label}
-        </label>
-        <div className='player__inputs'>
-          <input
-            type='text'
-            id='username'
-            className='player__input input-light'
-            placeholder='github username'
-            autoComplete='off'
-            value={this.state.username}
-            onChange={this.handleChange}
-          />
-          <button
-            className='player__input-btn btn btn-dark'
-            type='submit'
-            disabled={!this.state.username}
+      <ThemeConsumer>
+        {({ theme }) => (
+          <form
+            className='player'
+            onSubmit={this.handleSubmit}
           >
-            Submit
-          </button>
-        </div>
-      </form>
+            <label htmlFor='username' className='player__label'>
+              {this.props.label}
+            </label>
+            <div className='player__inputs'>
+              <input
+                type='text'
+                id='username'
+                className={`player__input input-${theme}`}
+                placeholder='github username'
+                autoComplete='off'
+                value={this.state.username}
+                onChange={this.handleChange}
+              />
+              <button
+                className={`player__input-btn btn btn-${theme}`}
+                type='submit'
+                disabled={!this.state.username}
+              >
+                Submit
+              </button>
+            </div>
+          </form>
+        )}
+      </ThemeConsumer>
     )
   }
 }
@@ -96,30 +105,34 @@ PlayerInput.propTypes = {
 
 function PlayerPreview({ username, onReset, label}) {
   return (
-    <div className='player'>
-      <h3 className='player__label'>{label}</h3>
-      <div className='player__info-container bg-light'>
-        <div className='player__info'>
-          <img
-            className='avatar-small'
-            src={`https://github.com/${username}.png?size=200`}
-            alt={`Avatar for ${username}`}
-          />
-          <a
-            href={`https://github.com/${username}`}
-            className='link'
-          >
-            {username}
-          </a>
+    <ThemeConsumer>
+      {({ theme }) => (
+        <div className='player'>
+          <h3 className='player__label'>{label}</h3>
+          <div className={`player__info-container bg-${theme}`}>
+            <div className='player__info'>
+              <img
+                className='avatar-small'
+                src={`https://github.com/${username}.png?size=200`}
+                alt={`Avatar for ${username}`}
+              />
+              <a
+                href={`https://github.com/${username}`}
+                className='link'
+              >
+                {username}
+              </a>
+            </div>
+            <button
+              className='btn btn-clear'
+              onClick={onReset}
+            >
+              <FaTimesCircle color='rgb(194, 57, 42)' size={26} />
+            </button>
+          </div>
         </div>
-        <button
-          className='btn btn-clear'
-          onClick={onReset}
-        >
-          <FaTimesCircle color='rgb(194, 57, 42)' size={26} />
-        </button>
-      </div>
-    </div>
+      )}
+    </ThemeConsumer>
   )
 }
 
