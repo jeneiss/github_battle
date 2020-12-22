@@ -4,8 +4,10 @@ import './reset.css'
 import './index.css'
 import Popular from './components/Popular'
 import Battle from './components/Battle'
+import Results from './components/Results'
 import { ThemeProvider } from './contexts/theme'
 import Nav from './components/Nav'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 class App extends React.Component {
   constructor(props) {
@@ -23,14 +25,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <ThemeProvider value={this.state}>
-        <div className={this.state.theme}>
-          <div className='wrapper'>
-            <Nav />
-            <Popular />
+      <Router>
+        <ThemeProvider value={this.state}>
+          <div className={this.state.theme}>
+            <div className='wrapper'>
+              <Nav />
+              <Route exact path='/' component={Popular} />
+              <Route exact path='/battle' component={Battle} />
+              <Route path='/battle/results' component={Results} />
+            </div>
           </div>
-        </div>
-      </ThemeProvider>
+        </ThemeProvider>
+      </Router>
     )
   }
 }

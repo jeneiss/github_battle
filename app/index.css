@@ -34,16 +34,34 @@
 
 /* ----- MOBILE ----- */
 body {
-  font-family: 'Source Sans Pro';
+  font-family: 'Source Sans Pro', Arial, sans-serif;
 }
 
 .wrapper {
   max-width: 100%;
-  min-height: 100vh;
 }
 
 .nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 3.125rem;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav__link {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav__list li {
+  margin: 0.5rem;
 }
 
 .dark {
@@ -54,7 +72,7 @@ body {
 .navlang__container,
 .instructions {
   width: 90%;
-  margin: 10% auto;
+  margin: 5% auto 10%;
 }
 
 .navlang__btn {
@@ -206,6 +224,7 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 50%;
   padding: 0.75rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -287,6 +306,15 @@ h4 {
 
 /* ----- TABLET ----- */
 @media only screen and (min-width: 48rem) {
+  .nav__list {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .nav__list li {
+    margin: 0.75rem;
+  }
+
   .grid:not(.results) {
     justify-content: initial;
   }
@@ -302,6 +330,10 @@ h4 {
   .players__inputs-container {
     display: flex;
     flex-direction: row;
+  }
+
+  .btn {
+    width: 30%;
   }
 }
 
